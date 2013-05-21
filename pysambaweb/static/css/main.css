@@ -1,0 +1,55 @@
+label.valid {
+    width: 24px;
+    height: auto;
+    background: url(../images/valid.png) center center no-repeat;
+    display: inline-block;
+    text-indent: -9999px;
+}
+label.fail {
+    width: 24px;
+    height: auto;
+    background: url(../images/error.png) center center no-repeat;
+    display: inline-block;
+    text-indent: -9999px;
+}
+label.error {
+    font-weight: bold;
+    color: red;
+    padding: 2px 8px;
+    margin-top: 2px;
+}
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: rgb(38, 130, 173);
+}
+.form-signin {
+    padding-top: 22px;
+    padding-bottom: 22px;
+    width: 386px;
+    max-width: 386px;
+    min-width: 386px;
+    background-color: #fff;
+    border: 1px solid #a3a3a3;
+     -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+             border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px #383838;
+       -moz-box-shadow: 0 1px 2px #383838;
+            box-shadow: 0 1px 2px #383838;
+}
+.form-btn{
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 20px
+}
+
+.form-frm {
+    padding-left: 83px;
+}
+
+.form-result {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 2px;
+}

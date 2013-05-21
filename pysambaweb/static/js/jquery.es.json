@@ -1,0 +1,11 @@
+$.i18n.es = {
+
+};
+
+jQuery.i18n.es.strings = {
+    "Field alphanumeric and symbols _": "Solo alfanumericos y simbolos _",
+    "Your new password has not changed": "Su nueva contraseña no ha cambiado",
+    "This field is required": "Este campo es requerido",
+    "{0} Minimum  characters": "{0} caracteres como mínimo",
+    "Confirm your new password": "Confirme su nueva contraseña"
+};

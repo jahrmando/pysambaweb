@@ -1,0 +1,76 @@
+{% extends "sambaweb/base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="offset4 span4">
+    <form id="formpasswd" action="/" method="post" class="form-signin">{% csrf_token %}
+        <center><h4>{% trans "Change Password Module" %}</h4><hr>
+        <img src="{{ STATIC_URL }}images/logo.jpg"></center>
+        <div class="form-frm">
+            <div class="control-group">
+                <label>{% trans "Username" %}</label>
+                {{form.nickname}}
+            </div>
+            <div class="control-group">
+                <label>{% trans "Old password" %}</label>
+                {{form.oldpasswd}}
+            </div>
+            <div class="control-group">
+                <label>{% trans "New password" %}</label>
+                {{form.newpasswd}}
+            </div>
+            <div class="control-group">
+                <label>{% trans "Retype password" %}</label>
+                {{form.retpasswd}}
+            </div>
+            <span></span>
+            <input class="btn btn-inverse btn-large" type=submit name=submit value="{% trans 'Change' %}" >
+        </div>
+    </form>
+    <div class="form-result">
+        {% if is_valid %}
+            {% if result %}
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <label>{{ message }}</label>
+                </div>
+            {% else %}
+                <div class="alert alert-error">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <label>{{ message }}</label>
+                </div>
+            {% endif %} 
+        {% endif %}
+    <a href="#myAbout" role="button" class="btn" data-toggle="modal">
+    <i class="icon-thumbs-up"></i></a>
+    </div>
+    {% for field in form %}
+        {% if field.errors %}
+        <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <label>{{field.label_tag }}{{field.errors }}</label>
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
+<!-- Modal -->
+<div id="myAbout" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">PySambaWeb v1.0.0</h3>
+    </div>
+    <div class="modal-body">
+        <p><strong>A web application to change user 
+        passwords on SMB</strong></p>
+        <p>
+        PySambaWeb Copyright (C) 2013 J. Armando Uch Canul</p>
+        <p>PySambaWeb is distributed whit GNU General Public License v3<br>
+        This program comes with ABSOLUTELY NO WARRANTY.<br>
+        This is free software, and you are welcome to redistribute it under<br>
+        certain conditions.
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+</div>
+{% endblock content %}

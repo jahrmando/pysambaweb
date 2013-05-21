@@ -1,0 +1,5 @@
+Django==1.5.1
+pysqlite==2.6.3
+smbpasswd==1.0.2
+sqlite3dbm==0.1.4
+wsgiref==0.1.2
