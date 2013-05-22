@@ -56,3 +56,9 @@ TEST
 - Run the service (dedug mode is disabled)
 
 `$ python manage.py runserver - insecure`
+
+SCREENSHOTS
+-----------
+![Image](https://raw.github.com/jahrmando/pysambaweb/master/docs/images/home.png)
+![Image](https://raw.github.com/jahrmando/pysambaweb/master/docs/images/home-validation.png)
+![Image](https://raw.github.com/jahrmando/pysambaweb/master/docs/images/home-response.png)
