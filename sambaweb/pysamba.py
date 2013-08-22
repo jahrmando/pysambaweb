@@ -18,31 +18,33 @@ class PySamba(object):
                 return True
             else:
                 return False
-        except Exception:
-            return stderr_value
+        except Exception, e:
+            return False
 
     def changePasswd(self, user, oldpass, password):
         is_saved = False
         msg = _("User not found")
-
-        with open(settings.SMB_DB) as file:
-            lines = file.readlines()
-
-        for line in lines:
-            user_info = line.strip().split(':')
-            if user in user_info:
-                if smbpasswd.nthash(oldpass) in user_info:
-                    if self.saveUser(user, password):
-                        is_saved = True
-                        msg = _("Changed successfully")
-                        break
+        try:
+            with open(settings.SMB_DB) as file:
+                lines = file.readlines()
+            for line in lines:
+                user_info = line.strip().split(':')
+                if user in user_info:
+                    if smbpasswd.nthash(oldpass) in user_info:
+                        if self.saveUser(user, password):
+                            is_saved = True
+                            msg = _("Changed successfully")
+                            break
+                        else:
+                            msg = _("Failed change")
+                            break
                     else:
-                        msg = _("Failed change")
+                        msg = _("Wrong password")
                         break
-                else:
-                    msg = _("Wrong password")
-                    break
-        return is_saved, msg
+            return is_saved, msg
+        except Exception, e:
+            msg = _("Failed change")
+            return is_saved, e
 
     def __init__(self):
         super(PySamba, self).__init__()

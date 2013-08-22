@@ -15,7 +15,7 @@ class UserForm(forms.Form):
     oldpasswd = forms.RegexField(
         min_length=10,
         required=True,
-        regex=r'^[a-zA-Z0-9]+$',
+        regex=r'^[a-zA-Z0-9_]+$',
         widget=forms.PasswordInput(attrs={
             'id': 'oldpasswd',
             'name': 'oldpasswd'
@@ -24,7 +24,7 @@ class UserForm(forms.Form):
     newpasswd = forms.RegexField(
         min_length=10,
         required=True,
-        regex=r'^[a-zA-Z0-9]+$',
+        regex=r'^[a-zA-Z0-9_]+$',
         widget=forms.PasswordInput(attrs={
             'id': 'newpasswd',
             'name': 'newpasswd'
@@ -33,7 +33,7 @@ class UserForm(forms.Form):
     retpasswd = forms.RegexField(
         min_length=10,
         required=True,
-        regex=r'^[a-zA-Z0-9]+$',
+        regex=r'^[a-zA-Z0-9_]+$',
         widget=forms.PasswordInput(attrs={
             'id': 'retpasswd',
             'name': 'retpasswd'
